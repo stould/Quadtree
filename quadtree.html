@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <style>
+            .canvas {
+                background-color: antiquewhite;
+                color: #000000;
+                border-style: solid;
+                border-width: 1px;
+                display: none;
+            }
+
+            .line {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                width: 250px;
+            }
+
+            .column {
+                display: flex;
+                flex-basis: 100%;
+                justify-content: space-between;
+                margin-bottom: 5px;
+            }
+
+            .content {
+                display: inline-flex;
+            }
+
+            button {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="line">
+            <div class="column">
+                <span>Width:</span>
+                <input id="width" type="text" value="800">
+            </div>
+            <div class="column">
+                <span>Height:</span>
+                <input id="height" type="text" value="600"/>
+            </div>
+            <div class="column">
+                <span>Capacity:</span>
+                <input id="capacity" type="text" value="6"/>
+            </div>
+            <div class="column">
+                <button id="startBtn">Start</button>
+            </div>
+        </div>
+
+        <canvas id="myCanvas" class="canvas"></canvas>
+    </body>
+    <script type='text/javascript' src='helper.js'></script>
+    <script type='text/javascript' src='canvashandler.js'></script>
+    <script type='text/javascript' src='quadtree.js'></script>
+    <script type='text/javascript' src='setup.js'></script>
+    <script>
+        
+        startBtn = document.getElementById('startBtn');
+        startBtn.onclick = function () {
+
+            startBtn.innerHTML = 'Restart';
+
+            const width = parseInt(document.getElementById('width').value, 10);
+            const heigth = parseInt(document.getElementById('height').value, 10);
+            const cap = parseInt(document.getElementById('capacity').value, 10);
+
+            setup(width, heigth, cap);
+        }
+    </script>
+
+</html>
